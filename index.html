@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Yanti Cake</title>
 
 <style>
@@ -29,7 +28,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.94);
   backdrop-filter: blur(10px);
   padding: 15px 6%;
   display: flex;
@@ -210,20 +209,49 @@ nav a:hover {
   box-shadow: 0 20px 40px rgba(80,40,60,.18);
 }
 
+/* FOTO PRODUK */
 .product-image {
   height: 280px;
   overflow: hidden;
+  background: #f8edf2;
 }
 
 .product-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+  display: block;
   transition: .6s;
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+/* POSISI FOTO */
+.product-card:nth-child(1) .product-image img {
+  object-position: center 55%;
+}
+
+.product-card:nth-child(2) .product-image img {
+  object-position: center 50%;
+}
+
+.product-card:nth-child(3) .product-image img {
+  object-position: center 50%;
+}
+
+.product-card:nth-child(4) .product-image img {
+  object-position: center 55%;
+}
+
+.product-card:nth-child(5) .product-image img {
+  object-position: center 50%;
+}
+
+.product-card:nth-child(6) .product-image img {
+  object-position: center 50%;
 }
 
 .product-info {
@@ -618,7 +646,7 @@ footer p {
     <h2>Kue Manis untuk Momen Spesialmu 💕</h2>
 
     <p>
-      Nikmati aneka cake, bento cake, cupcake dan kue custom
+      Nikmati aneka cake, bento cake, dan kue custom
       yang dibuat dengan penuh cinta untuk hari spesialmu.
     </p>
 
@@ -639,93 +667,177 @@ footer p {
 
   <div class="product-grid">
 
+    <!-- 1 -->
     <div class="product-card">
+
       <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
+        <img
+          src="images/chocolate-drip-cake.jpg"
+          alt="Chocolate Drip Cake">
       </div>
 
       <div class="product-info">
-        <h3>Chocolate Cake</h3>
-        <p>Cake cokelat lembut dengan rasa manis yang pas.</p>
-        <div class="price">Rp 85.000</div>
-        <button class="order-button" onclick="openOrder('Chocolate Cake','Rp 85.000')">
+
+        <h3>Chocolate Drip Cake</h3>
+
+        <p>
+          Cake cokelat dengan dekorasi cantik,
+          Oreo, buah dan tulisan sesuai pesanan.
+        </p>
+
+        <div class="price">Mulai Rp 85.000</div>
+
+        <button
+          class="order-button"
+          onclick="openOrder('Chocolate Drip Cake','Mulai Rp 85.000')">
           🛒 Pesan Sekarang
         </button>
+
       </div>
     </div>
 
+    <!-- 2 -->
     <div class="product-card">
+
       <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=800&q=80" alt="Birthday Cake">
+        <img
+          src="images/birthday-chocolate-cake.jpg"
+          alt="Birthday Chocolate Cake">
       </div>
 
       <div class="product-info">
-        <h3>Birthday Cake</h3>
-        <p>Cake ulang tahun cantik untuk orang tersayang.</p>
-        <div class="price">Rp 100.000</div>
-        <button class="order-button" onclick="openOrder('Birthday Cake','Rp 100.000')">
-          🛒 Pesan Sekarang
-        </button>
-      </div>
-    </div>
 
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=800&q=80" alt="Bento Cake">
-      </div>
+        <h3>Birthday Chocolate Cake</h3>
 
-      <div class="product-info">
-        <h3>Bento Cake</h3>
-        <p>Mini cake lucu dan cocok untuk hadiah.</p>
-        <div class="price">Rp 45.000</div>
-        <button class="order-button" onclick="openOrder('Bento Cake','Rp 45.000')">
-          🛒 Pesan Sekarang
-        </button>
-      </div>
-    </div>
+        <p>
+          Cake ulang tahun dengan perpaduan
+          cokelat, cream dan dekorasi cantik.
+        </p>
 
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=80" alt="Strawberry Cake">
-      </div>
-
-      <div class="product-info">
-        <h3>Strawberry Cake</h3>
-        <p>Perpaduan cake lembut dan strawberry yang segar.</p>
-        <div class="price">Rp 95.000</div>
-        <button class="order-button" onclick="openOrder('Strawberry Cake','Rp 95.000')">
-          🛒 Pesan Sekarang
-        </button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=800&q=80" alt="Cupcake">
-      </div>
-
-      <div class="product-info">
-        <h3>Cupcake</h3>
-        <p>Cupcake mini cantik untuk berbagai acara.</p>
-        <div class="price">Rp 15.000</div>
-        <button class="order-button" onclick="openOrder('Cupcake','Rp 15.000')">
-          🛒 Pesan Sekarang
-        </button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=800&q=80" alt="Custom Cake">
-      </div>
-
-      <div class="product-info">
-        <h3>Custom Cake</h3>
-        <p>Buat desain cake sesuai tema dan keinginanmu.</p>
         <div class="price">Mulai Rp 100.000</div>
-        <button class="order-button" onclick="openOrder('Custom Cake','Mulai Rp 100.000')">
+
+        <button
+          class="order-button"
+          onclick="openOrder('Birthday Chocolate Cake','Mulai Rp 100.000')">
           🛒 Pesan Sekarang
         </button>
+
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="product-card">
+
+      <div class="product-image">
+        <img
+          src="images/pink-purple-bento-cake.jpg"
+          alt="Pink Purple Bento Cake">
+      </div>
+
+      <div class="product-info">
+
+        <h3>Pink Purple Bento Cake</h3>
+
+        <p>
+          Bento cake cantik warna pink dan ungu,
+          cocok untuk hadiah dan momen spesial.
+        </p>
+
+        <div class="price">Mulai Rp 45.000</div>
+
+        <button
+          class="order-button"
+          onclick="openOrder('Pink Purple Bento Cake','Mulai Rp 45.000')">
+          🛒 Pesan Sekarang
+        </button>
+
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="product-card">
+
+      <div class="product-image">
+        <img
+          src="images/pink-heart-cake.jpg"
+          alt="Pink Heart Cake">
+      </div>
+
+      <div class="product-info">
+
+        <h3>Pink Heart Cake</h3>
+
+        <p>
+          Cake pink romantis dengan dekorasi
+          hati yang cocok untuk orang tersayang.
+        </p>
+
+        <div class="price">Mulai Rp 75.000</div>
+
+        <button
+          class="order-button"
+          onclick="openOrder('Pink Heart Cake','Mulai Rp 75.000')">
+          🛒 Pesan Sekarang
+        </button>
+
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="product-card">
+
+      <div class="product-image">
+        <img
+          src="images/pink-ribbon-cake.jpg"
+          alt="Pink Ribbon Cake">
+      </div>
+
+      <div class="product-info">
+
+        <h3>Pink Ribbon Cake</h3>
+
+        <p>
+          Cake pink putih dengan hiasan pita,
+          mutiara dan cream yang cantik.
+        </p>
+
+        <div class="price">Mulai Rp 90.000</div>
+
+        <button
+          class="order-button"
+          onclick="openOrder('Pink Ribbon Cake','Mulai Rp 90.000')">
+          🛒 Pesan Sekarang
+        </button>
+
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="product-card">
+
+      <div class="product-image">
+        <img
+          src="images/white-cartoon-birthday-cake.jpg"
+          alt="Custom Birthday Cake">
+      </div>
+
+      <div class="product-info">
+
+        <h3>Custom Birthday Cake</h3>
+
+        <p>
+          Cake custom dengan gambar, tulisan,
+          warna dan tema sesuai keinginan.
+        </p>
+
+        <div class="price">Mulai Rp 100.000</div>
+
+        <button
+          class="order-button"
+          onclick="openOrder('Custom Birthday Cake','Mulai Rp 100.000')">
+          🛒 Pesan Sekarang
+        </button>
+
       </div>
     </div>
 
@@ -733,7 +845,7 @@ footer p {
 
 </section>
 
-<!-- MODAL ORDER -->
+<!-- FORM PEMESANAN -->
 
 <div class="modal" id="orderModal">
 
@@ -757,12 +869,20 @@ footer p {
 
       <div class="form-group">
         <label>Nama</label>
-        <input type="text" id="name" required placeholder="Nama kamu">
+        <input
+          type="text"
+          id="name"
+          required
+          placeholder="Nama kamu">
       </div>
 
       <div class="form-group">
         <label>Nomor WhatsApp</label>
-        <input type="tel" id="customerWhatsapp" required placeholder="08xxxxxxxxxx">
+        <input
+          type="tel"
+          id="customerWhatsapp"
+          required
+          placeholder="08xxxxxxxxxx">
       </div>
 
       <div class="form-group">
@@ -777,6 +897,7 @@ footer p {
 
       <div class="form-group">
         <label>Jumlah</label>
+
         <select id="quantity">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -789,16 +910,26 @@ footer p {
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
+
       </div>
 
       <div class="form-group">
         <label>Alamat</label>
-        <textarea id="address" required placeholder="Alamat pengantaran"></textarea>
+
+        <textarea
+          id="address"
+          required
+          placeholder="Alamat pengantaran"></textarea>
+
       </div>
 
       <div class="form-group">
         <label>Catatan</label>
-        <textarea id="note" placeholder="Contoh: tulisan di cake, warna, desain, dll."></textarea>
+
+        <textarea
+          id="note"
+          placeholder="Contoh: tulisan di cake, warna, desain, dll."></textarea>
+
       </div>
 
       <button type="submit" class="send-button">
@@ -821,33 +952,38 @@ footer p {
 
   <div class="social-buttons">
 
-    <a href="https://wa.me/62895604755892"
-       target="_blank"
-       class="social-btn whatsapp">
+    <a
+      href="https://wa.me/62895604755892"
+      target="_blank"
+      class="social-btn whatsapp">
       💬 WhatsApp
     </a>
 
-    <a href="https://www.instagram.com/yanti_purple_ungu/"
-       target="_blank"
-       class="social-btn instagram">
+    <a
+      href="https://www.instagram.com/yanti_purple_ungu/"
+      target="_blank"
+      class="social-btn instagram">
       📷 Instagram
     </a>
 
-    <a href="https://www.tiktok.com/@yanti_cake"
-       target="_blank"
-       class="social-btn tiktok">
+    <a
+      href="https://www.tiktok.com/@yanti_cake"
+      target="_blank"
+      class="social-btn tiktok">
       ♪ TikTok
     </a>
 
-    <a href="https://maps.app.goo.gl/f1XSyJsq2CLD3c8cA"
-       target="_blank"
-       class="social-btn maps">
+    <a
+      href="https://maps.app.goo.gl/f1XSyJsq2CLD3c8cA"
+      target="_blank"
+      class="social-btn maps">
       📍 Google Maps
     </a>
 
-    <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTU1ODEwNDc3MTk2Mzcw?story_media_id=3948243132810731367_41553273965&stkn=NXNpNnAyaHZoZWxo"
-       target="_blank"
-       class="social-btn testimonial">
+    <a
+      href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTU1ODEwNDc3MTk2Mzcw?story_media_id=3948243132810731367_41553273965&stkn=NXNpNnAyaHZoZWxo"
+      target="_blank"
+      class="social-btn testimonial">
       ⭐ Testimoni
     </a>
 
@@ -861,51 +997,59 @@ footer p {
 
 <script>
 
-// NOMOR WHATSAPP YANTI CAKE
+/* NOMOR WHATSAPP YANTI CAKE */
 const WHATSAPP_NUMBER = "62895604755892";
 
-
-// TANGGAL MINIMAL = HARI INI
+/* TANGGAL MINIMAL */
 const today = new Date();
+
 const year = today.getFullYear();
 const month = String(today.getMonth() + 1).padStart(2, '0');
 const day = String(today.getDate()).padStart(2, '0');
 
-document.getElementById("date").min = `${year}-${month}-${day}`;
+document.getElementById("date").min =
+  `${year}-${month}-${day}`;
 
 
-// BUKA FORM PESAN
+/* BUKA FORM */
 function openOrder(productName, productPrice) {
 
   document.getElementById("product").value = productName;
+
   document.getElementById("price").value = productPrice;
 
-  document.getElementById("orderModal").classList.add("show");
+  document
+    .getElementById("orderModal")
+    .classList.add("show");
 
   document.body.style.overflow = "hidden";
 }
 
 
-// TUTUP FORM
+/* TUTUP FORM */
 function closeOrder() {
 
-  document.getElementById("orderModal").classList.remove("show");
+  document
+    .getElementById("orderModal")
+    .classList.remove("show");
 
   document.body.style.overflow = "auto";
 }
 
 
-// KLIK DI LUAR MODAL
-document.getElementById("orderModal").addEventListener("click", function(event) {
+/* KLIK DI LUAR FORM */
+document
+  .getElementById("orderModal")
+  .addEventListener("click", function(event) {
 
-  if (event.target === this) {
-    closeOrder();
-  }
+    if (event.target === this) {
+      closeOrder();
+    }
 
-});
+  });
 
 
-// TOMBOL ESC
+/* TOMBOL ESC */
 document.addEventListener("keydown", function(event) {
 
   if (event.key === "Escape") {
@@ -915,7 +1059,7 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-// KIRIM PESAN KE WHATSAPP
+/* KIRIM KE WHATSAPP */
 function sendOrder(event) {
 
   event.preventDefault();
@@ -969,7 +1113,8 @@ ${address}
 📝 Catatan:
 ${note}
 
-Mohon konfirmasi pesanan saya. Terima kasih 🙏💕`;
+Mohon konfirmasi pesanan saya.
+Terima kasih 🙏💕`;
 
 
   const whatsappURL =
@@ -980,10 +1125,9 @@ Mohon konfirmasi pesanan saya. Terima kasih 🙏💕`;
 
 
   window.open(whatsappURL, "_blank");
-
 }
 
 </script>
 
 </body>
-  </html>
+</html>

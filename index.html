@@ -919,6 +919,12 @@ target="_blank">
 <input type="number" id="jumlah" min="1" value="1">
 </div>
 
+<label>Tanggal Pesanan</label>
+<input type="date" id="tanggalPesanan" required>
+
+<label>Jam Pesanan</label>
+<input type="time" id="jamPesanan" required>
+
 <div class="form-group">
 <label>Catatan / Request</label>
 <textarea id="catatan" placeholder="Contoh: tulisan di kue, warna, tanggal pesan, dll."></textarea>
@@ -958,6 +964,8 @@ function kirimPesanan(){
   const nomor = document.getElementById("nomor").value.trim();
   const kue = document.getElementById("kue").value;
   const jumlah = document.getElementById("jumlah").value;
+const tanggal = document.getElementById("tanggalPesanan").value;
+const jam = document.getElementById("jamPesanan").value;
   const catatan = document.getElementById("catatan").value.trim();
 
   if(!nama){
@@ -971,18 +979,17 @@ function kirimPesanan(){
   }
 
   let pesan =
-`Halo Yanti Cake 👋
-
-Saya mau pesan kue.
+`🍰 *PESANAN YANTI CAKE*
 
 👤 Nama: ${nama}
-📱 Nomor WhatsApp: ${nomor}
-🎂 Pesanan: ${kue}
+📱 No. WhatsApp: ${nomor}
+🎂 Kue: ${kue}
 🔢 Jumlah: ${jumlah}
-📝 Catatan/Request: ${catatan || "-"}
+📅 Tanggal Pesanan: ${tanggal}
+⏰ Jam Pesanan: ${jam}
+📝 Catatan: ${catatan || "-"}
 
-Mohon info harga dan ketersediaannya ya.
-Terima kasih 💕`;
+Mohon konfirmasi pesanan saya ya 🙏`;
 
   window.open(
     "https://wa.me/" +
@@ -1009,4 +1016,4 @@ document.getElementById("orderModal").addEventListener("click",function(e){
 </script>
 
 </body>
-</html>
+  </html>

@@ -18,9 +18,37 @@ html{
 }
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#fff8fb;
   color:#69495a;
+}
+
+/* ================= ANIMASI ================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.04)}
 }
 
 /* ================= HEADER ================= */
@@ -56,7 +84,6 @@ header{
   width:48px;
   height:48px;
   object-fit:contain;
-  border-radius:50%;
 }
 
 .nav-links{
@@ -69,10 +96,12 @@ header{
   color:#604354;
   font-weight:700;
   font-size:17px;
+  transition:.25s;
 }
 
 .nav-links a:hover{
   color:#d05280;
+  transform:translateY(-2px);
 }
 
 /* ================= HERO ================= */
@@ -87,8 +116,8 @@ header{
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 10% 20%, #fff 0 18%, transparent 19%),
-    radial-gradient(circle at 100% 90%, #f8ddea 0 22%, transparent 23%),
+    radial-gradient(circle at 10% 20%,#fff 0 18%,transparent 19%),
+    radial-gradient(circle at 100% 90%,#f8ddea 0 22%,transparent 23%),
     linear-gradient(135deg,#fff7fa,#fbe6f0);
 }
 
@@ -102,6 +131,7 @@ header{
   position:relative;
   z-index:2;
   text-align:left;
+  animation:fadeUp .9s ease;
 }
 
 .hero-video{
@@ -112,6 +142,7 @@ header{
   box-shadow:0 10px 30px rgba(150,70,100,.18);
   flex-shrink:0;
   background:#f8edf2;
+  animation:float 4s ease-in-out infinite;
 }
 
 .hero-text{
@@ -129,6 +160,7 @@ header{
   font-weight:700;
   margin-bottom:35px;
   box-shadow:0 5px 20px rgba(150,70,100,.08);
+  animation:fadeUp 1s ease;
 }
 
 .hero h1{
@@ -136,12 +168,14 @@ header{
   font-size:78px;
   line-height:1;
   margin-bottom:30px;
+  animation:fadeUp 1.1s ease;
 }
 
 .hero p{
   font-size:23px;
   line-height:1.55;
   margin-bottom:38px;
+  animation:fadeUp 1.2s ease;
 }
 
 .cta{
@@ -154,11 +188,18 @@ header{
   font-size:20px;
   font-weight:700;
   box-shadow:0 8px 20px rgba(210,86,131,.25);
+  transition:.25s;
+  animation:fadeUp 1.3s ease;
 }
 
 .cta:hover{
   background:#bd456f;
-  transform:translateY(-2px);
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px rgba(210,86,131,.35);
+}
+
+.cta:active{
+  transform:scale(.96);
 }
 
 /* ================= SECTION ================= */
@@ -172,6 +213,7 @@ section{
   color:#b74876;
   font-size:55px;
   margin-bottom:15px;
+  animation:fadeUp .8s ease;
 }
 
 .section-desc{
@@ -196,10 +238,12 @@ section{
   overflow:hidden;
   box-shadow:0 8px 25px rgba(100,50,80,.10);
   transition:.3s;
+  animation:fadeUp .8s ease;
 }
 
 .product-card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(100,50,80,.17);
 }
 
 .product-card img{
@@ -207,6 +251,11 @@ section{
   height:250px;
   object-fit:cover;
   display:block;
+  transition:.4s;
+}
+
+.product-card:hover img{
+  transform:scale(1.03);
 }
 
 .product-info{
@@ -235,6 +284,58 @@ section{
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
+  transition:.2s;
+}
+
+.order-btn:hover{
+  background:#bd456f;
+  transform:translateY(-2px);
+  box-shadow:0 7px 15px rgba(210,86,131,.25);
+}
+
+.order-btn:active{
+  transform:scale(.96);
+}
+
+/* ================= TESTIMONI ================= */
+
+.testimoni{
+  background:#fff8fb;
+}
+
+.testimoni-list{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.testimoni-card{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  box-shadow:0 8px 25px rgba(100,50,80,.08);
+  transition:.3s;
+}
+
+.testimoni-card:hover{
+  transform:translateY(-5px);
+}
+
+.stars{
+  color:#f0a52b;
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.testimoni-card p{
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.testimoni-card strong{
+  color:#b74876;
 }
 
 /* ================= CONTACT ================= */
@@ -256,9 +357,36 @@ section{
   text-decoration:none;
   padding:15px 25px;
   border-radius:15px;
-  background:#d25683;
   color:white;
   font-weight:bold;
+  min-width:170px;
+  transition:.25s;
+  box-shadow:0 6px 15px rgba(100,50,80,.12);
+}
+
+.contact-buttons a:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(100,50,80,.18);
+}
+
+.contact-buttons a:active{
+  transform:scale(.95);
+}
+
+.wa{
+  background:#25D366;
+}
+
+.instagram{
+  background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+}
+
+.tiktok{
+  background:#111;
+}
+
+.maps{
+  background:#d25683;
 }
 
 /* ================= FOOTER ================= */
@@ -268,6 +396,109 @@ footer{
   padding:30px 20px;
   background:#fff;
   color:#8a6374;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(60,30,45,.55);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  animation:fadeIn .25s ease;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:480px;
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 20px 50px rgba(60,30,45,.25);
+  animation:fadeUp .3s ease;
+  position:relative;
+}
+
+.modal-box h2{
+  color:#b74876;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:12px;
+  border:0;
+  background:none;
+  font-size:30px;
+  color:#a46b83;
+  cursor:pointer;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+  color:#69495a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #e6bfd0;
+  border-radius:12px;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#d25683;
+  box-shadow:0 0 0 3px rgba(210,86,131,.1);
+}
+
+.form-group textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.send-order{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:13px;
+  background:#25D366;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.send-order:hover{
+  background:#1fbd5b;
+  transform:translateY(-2px);
+}
+
+.send-order:active{
+  transform:scale(.97);
 }
 
 /* ================= MOBILE ================= */
@@ -346,6 +577,19 @@ footer{
   .product-card img{
     height:260px;
   }
+
+  .testimoni-list{
+    grid-template-columns:1fr;
+  }
+
+  .contact-buttons{
+    gap:12px;
+  }
+
+  .contact-buttons a{
+    min-width:145px;
+    padding:14px 18px;
+  }
 }
 
 /* ================= SMALL PHONE ================= */
@@ -386,20 +630,20 @@ footer{
 <!-- ================= HEADER ================= -->
 
 <header>
-  <nav class="navbar">
+<nav class="navbar">
 
-    <a href="#" class="logo">
-      <img src="logo-yanti-cake.png" alt="Logo Yanti Cake">
-      <span>YANTI CAKE</span>
-    </a>
+<a href="#" class="logo">
+<img src="logo-yanti-cake.png" alt="Logo Yanti Cake">
+<span>YANTI CAKE</span>
+</a>
 
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#produk">Produk</a>
-      <a href="#kontak">Kontak</a>
-    </div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#produk">Produk</a>
+<a href="#kontak">Kontak</a>
+</div>
 
-  </nav>
+</nav>
 </header>
 
 
@@ -407,38 +651,38 @@ footer{
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <video
-      class="hero-video"
-      src="video-cake.mp4"
-      autoplay
-      muted
-      loop
-      playsinline>
-    </video>
+<video
+class="hero-video"
+src="video-cake.mp4"
+autoplay
+muted
+loop
+playsinline>
+</video>
 
-    <div class="hero-text">
+<div class="hero-text">
 
-      <div class="badge">
-        ✨ Freshly Made With Love
-      </div>
+<div class="badge">
+✨ Freshly Made With Love
+</div>
 
-      <h1>Yanti Cake</h1>
+<h1>Yanti Cake</h1>
 
-      <p>
-        Kue cantik, fresh, dan dibuat dengan penuh cinta
-        untuk ulang tahun, hadiah, acara spesial,
-        atau sekadar bikin hari jadi lebih manis.
-      </p>
+<p>
+Kue cantik, fresh, dan dibuat dengan penuh cinta
+untuk ulang tahun, hadiah, acara spesial,
+atau sekadar bikin hari jadi lebih manis.
+</p>
 
-      <a class="cta" href="#produk">
-        Lihat Produk
-      </a>
+<a class="cta" href="#produk">
+Lihat Produk
+</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -447,107 +691,151 @@ footer{
 
 <section id="produk">
 
-  <h2 class="section-title">
-    🍰 Pilihan Kue
-  </h2>
+<h2 class="section-title">
+🍰 Pilihan Kue
+</h2>
 
-  <p class="section-desc">
-    Pilih kue favoritmu dan langsung pesan melalui WhatsApp.
-  </p>
+<p class="section-desc">
+Pilih kue favoritmu dan langsung pesan melalui WhatsApp.
+</p>
 
-  <div class="products">
+<div class="products">
 
-    <div class="product-card">
-      <img src="chocolate-drip-cake.jpg" alt="Chocolate Drip Cake">
+<div class="product-card">
+<img src="chocolate-drip-cake.jpg" alt="Chocolate Drip Cake">
 
-      <div class="product-info">
-        <h3>Chocolate Drip Cake</h3>
-        <p>Kue cokelat cantik dengan dekorasi yang manis.</p>
+<div class="product-info">
+<h3>Chocolate Drip Cake</h3>
+<p>Kue cokelat cantik dengan dekorasi yang manis.</p>
 
-        <button class="order-btn"
-          onclick="pesan('Chocolate Drip Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
-
-
-    <div class="product-card">
-      <img src="pink-ribbon-cake.jpg" alt="Pink Ribbon Cake">
-
-      <div class="product-info">
-        <h3>Pink Ribbon Cake</h3>
-        <p>Desain pink elegan untuk hari spesial.</p>
-
-        <button class="order-btn"
-          onclick="pesan('Pink Ribbon Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
+<button class="order-btn"
+onclick="bukaForm('Chocolate Drip Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
 
 
-    <div class="product-card">
-      <img src="pink-purple-bento-cake.jpg" alt="Pink Purple Bento Cake">
+<div class="product-card">
+<img src="pink-ribbon-cake.jpg" alt="Pink Ribbon Cake">
 
-      <div class="product-info">
-        <h3>Pink Purple Bento Cake</h3>
-        <p>Bento cake mungil dan cantik untuk hadiah.</p>
+<div class="product-info">
+<h3>Pink Ribbon Cake</h3>
+<p>Desain pink elegan untuk hari spesial.</p>
 
-        <button class="order-btn"
-          onclick="pesan('Pink Purple Bento Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
-
-
-    <div class="product-card">
-      <img src="white-cartoon-birthday-cake.jpg" alt="White Cartoon Birthday Cake">
-
-      <div class="product-info">
-        <h3>White Cartoon Birthday Cake</h3>
-        <p>Kue ulang tahun dengan desain karakter yang lucu.</p>
-
-        <button class="order-btn"
-          onclick="pesan('White Cartoon Birthday Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
+<button class="order-btn"
+onclick="bukaForm('Pink Ribbon Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
 
 
-    <div class="product-card">
-      <img src="pink-heart-cake.jpg" alt="Pink Heart Cake">
+<div class="product-card">
+<img src="pink-purple-bento-cake.jpg" alt="Pink Purple Bento Cake">
 
-      <div class="product-info">
-        <h3>Pink Heart Cake</h3>
-        <p>Kue berbentuk hati dengan nuansa pink yang manis.</p>
+<div class="product-info">
+<h3>Pink Purple Bento Cake</h3>
+<p>Bento cake mungil dan cantik untuk hadiah.</p>
 
-        <button class="order-btn"
-          onclick="pesan('Pink Heart Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
+<button class="order-btn"
+onclick="bukaForm('Pink Purple Bento Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
 
 
-    <div class="product-card">
-      <img src="custom-birthday-cake.jpg" alt="Custom Birthday Cake">
+<div class="product-card">
+<img src="white-cartoon-birthday-cake.jpg" alt="White Cartoon Birthday Cake">
 
-      <div class="product-info">
-        <h3>Custom Birthday Cake</h3>
-        <p>Bebas request desain sesuai tema acara kamu.</p>
+<div class="product-info">
+<h3>White Cartoon Birthday Cake</h3>
+<p>Kue ulang tahun dengan desain karakter yang lucu.</p>
 
-        <button class="order-btn"
-          onclick="pesan('Custom Birthday Cake')">
-          Pesan via WhatsApp
-        </button>
-      </div>
-    </div>
+<button class="order-btn"
+onclick="bukaForm('White Cartoon Birthday Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
 
-  </div>
 
+<div class="product-card">
+<img src="pink-heart-cake.jpg" alt="Pink Heart Cake">
+
+<div class="product-info">
+<h3>Pink Heart Cake</h3>
+<p>Kue berbentuk hati dengan nuansa pink yang manis.</p>
+
+<button class="order-btn"
+onclick="bukaForm('Pink Heart Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
+
+
+<div class="product-card">
+<img src="custom-birthday-cake.jpg" alt="Custom Birthday Cake">
+
+<div class="product-info">
+<h3>Custom Birthday Cake</h3>
+<p>Bebas request desain sesuai tema acara kamu.</p>
+
+<button class="order-btn"
+onclick="bukaForm('Custom Birthday Cake')">
+💬 Pesan via WhatsApp
+</button>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= TESTIMONI ================= -->
+
+<section class="testimoni">
+
+<h2 class="section-title">
+⭐ Ulasan Pelanggan
+</h2>
+
+<p class="section-desc">
+Cerita manis dari pelanggan Yanti Cake 💕
+</p>
+
+<div class="testimoni-list">
+
+<div class="testimoni-card">
+<div class="stars">★★★★★</div>
+<p>
+“Kuenya cantik banget dan rasanya enak. Dekorasinya
+juga sesuai request. Terima kasih Yanti Cake!”
+</p>
+<strong>— Pelanggan Yanti Cake</strong>
+</div>
+
+<div class="testimoni-card">
+<div class="stars">★★★★★</div>
+<p>
+“Pesan untuk ulang tahun dan hasilnya bagus banget.
+Kuenya fresh dan pelayanannya ramah.”
+</p>
+<strong>— Pelanggan Yanti Cake</strong>
+</div>
+
+<div class="testimoni-card">
+<div class="stars">★★★★★</div>
+<p>
+“Packaging rapi, kue cantik, dan rasanya enak.
+Pasti pesan lagi.”
+</p>
+<strong>— Pelanggan Yanti Cake</strong>
+</div>
+
+</div>
 </section>
 
 
@@ -555,33 +843,41 @@ footer{
 
 <section id="kontak" class="contact">
 
-  <h2 class="section-title">
-    💕 Hubungi Yanti Cake
-  </h2>
+<h2 class="section-title">
+💕 Hubungi Yanti Cake
+</h2>
 
-  <p class="section-desc">
-    Mau pesan kue atau konsultasi desain? Hubungi kami.
-  </p>
+<p class="section-desc">
+Mau pesan kue atau konsultasi desain? Hubungi kami.
+</p>
 
-  <div class="contact-buttons">
+<div class="contact-buttons">
 
-    <a href="https://wa.me/62895604755892" target="_blank">
-      WhatsApp
-    </a>
+<a class="wa"
+href="https://wa.me/62895604755892"
+target="_blank">
+💬 WhatsApp
+</a>
 
-    <a href="https://www.instagram.com/" target="_blank">
-      Instagram
-    </a>
+<a class="instagram"
+href="https://www.instagram.com/yanti_purple_ungu/"
+target="_blank">
+📸 Instagram
+</a>
 
-    <a href="https://www.tiktok.com/" target="_blank">
-      TikTok
-    </a>
+<a class="tiktok"
+href="https://www.tiktok.com/@yanti_cake"
+target="_blank">
+🎵 TikTok
+</a>
 
-    <a href="https://maps.google.com/" target="_blank">
-      Google Maps
-    </a>
+<a class="maps"
+href="https://maps.google.com/"
+target="_blank">
+📍 Google Maps
+</a>
 
-  </div>
+</div>
 
 </section>
 
@@ -589,28 +885,126 @@ footer{
 <!-- ================= FOOTER ================= -->
 
 <footer>
-  © 2026 Yanti Cake — Made With Love 💕
+© 2026 Yanti Cake — Made With Love 💕
 </footer>
+
+
+<!-- ================= MODAL ORDER ================= -->
+
+<div class="modal" id="orderModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="tutupForm()">×</button>
+
+<h2>🧁 Form Pemesanan</h2>
+
+<div class="form-group">
+<label>Nama</label>
+<input type="text" id="nama" placeholder="Nama kamu">
+</div>
+
+<div class="form-group">
+<label>Nomor WhatsApp</label>
+<input type="tel" id="nomor" placeholder="08xxxxxxxxxx">
+</div>
+
+<div class="form-group">
+<label>Pesanan</label>
+<input type="text" id="kue" readonly>
+</div>
+
+<div class="form-group">
+<label>Jumlah</label>
+<input type="number" id="jumlah" min="1" value="1">
+</div>
+
+<div class="form-group">
+<label>Catatan / Request</label>
+<textarea id="catatan" placeholder="Contoh: tulisan di kue, warna, tanggal pesan, dll."></textarea>
+</div>
+
+<button class="send-order" onclick="kirimPesanan()">
+💬 Kirim Pesanan ke WhatsApp
+</button>
+
+</div>
+</div>
 
 
 <script>
 
-function pesan(namaKue){
+const nomorYanti = "62895604755892";
 
-  const nomor = "62895604755892";
+function bukaForm(namaKue){
 
-  const pesan =
-    "Halo Yanti Cake 👋%0A%0A" +
-    "Saya mau pesan:%0A" +
-    namaKue +
-    "%0A%0A" +
-    "Mohon info harga dan detailnya ya. Terima kasih 😊";
+  document.getElementById("kue").value = namaKue;
+
+  document.getElementById("orderModal").classList.add("show");
+
+  document.body.style.overflow = "hidden";
+}
+
+function tutupForm(){
+
+  document.getElementById("orderModal").classList.remove("show");
+
+  document.body.style.overflow = "auto";
+}
+
+function kirimPesanan(){
+
+  const nama = document.getElementById("nama").value.trim();
+  const nomor = document.getElementById("nomor").value.trim();
+  const kue = document.getElementById("kue").value;
+  const jumlah = document.getElementById("jumlah").value;
+  const catatan = document.getElementById("catatan").value.trim();
+
+  if(!nama){
+    alert("Nama belum diisi ya 😊");
+    return;
+  }
+
+  if(!nomor){
+    alert("Nomor WhatsApp belum diisi ya 😊");
+    return;
+  }
+
+  let pesan =
+`Halo Yanti Cake 👋
+
+Saya mau pesan kue.
+
+👤 Nama: ${nama}
+📱 Nomor WhatsApp: ${nomor}
+🎂 Pesanan: ${kue}
+🔢 Jumlah: ${jumlah}
+📝 Catatan/Request: ${catatan || "-"}
+
+Mohon info harga dan ketersediaannya ya.
+Terima kasih 💕`;
 
   window.open(
-    "https://wa.me/" + nomor + "?text=" + pesan,
+    "https://wa.me/" +
+    nomorYanti +
+    "?text=" +
+    encodeURIComponent(pesan),
     "_blank"
   );
+
+  tutupForm();
 }
+
+
+/* Klik area luar modal untuk menutup */
+
+document.getElementById("orderModal").addEventListener("click",function(e){
+
+  if(e.target === this){
+    tutupForm();
+  }
+
+});
 
 </script>
 

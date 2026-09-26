@@ -964,8 +964,8 @@ function kirimPesanan(){
   const nomor = document.getElementById("nomor").value.trim();
   const kue = document.getElementById("kue").value;
   const jumlah = document.getElementById("jumlah").value;
-const tanggal = document.getElementById("tanggalPesanan").value;
-const jam = document.getElementById("jamPesanan").value;
+const tanggal = document.getElementById("tanggal di ambil").value;
+const jam = document.getElementById("jam di ambil").value;
   const catatan = document.getElementById("catatan").value.trim();
 
   if(!nama){
@@ -985,8 +985,8 @@ const jam = document.getElementById("jamPesanan").value;
 📱 No. WhatsApp: ${nomor}
 🎂 Kue: ${kue}
 🔢 Jumlah: ${jumlah}
-📅 Tanggal Pesanan: ${tanggal}
-⏰ Jam Pesanan: ${jam}
+📅 Tanggal diambil: ${tanggal}
+⏰ Jam diambil: ${jam}
 📝 Catatan: ${catatan || "-"}
 
 Mohon konfirmasi pesanan saya ya 🙏`;
@@ -1016,4 +1016,4 @@ document.getElementById("orderModal").addEventListener("click",function(e){
 </script>
 
 </body>
-  </html>
+</html>

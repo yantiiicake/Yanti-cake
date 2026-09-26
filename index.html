@@ -4,108 +4,1205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yanti Cake | Kue Homemade</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#fff8fb;color:#4b3340;line-height:1.6}
-header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 15px #d45b8220}
-.nav{max-width:1150px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:24px;font-weight:800;color:#d45b82}
-nav{display:flex;gap:22px} nav a{text-decoration:none;color:#633e4f;font-weight:bold}
-.hero{min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px;background:linear-gradient(135deg,#fff1f6,#f9e6f0,#fff8fb)}
-.hero-content{max-width:800px}.badge{display:inline-block;background:#fff;border:1px solid #f3c6d6;color:#d45b82;padding:9px 16px;border-radius:999px;font-weight:bold;margin-bottom:18px}
-h1{font-size:clamp(46px,9vw,82px);color:#d45b82;line-height:1;margin-bottom:18px}
-.hero p{font-size:19px;color:#765566;max-width:650px;margin:0 auto 28px}
-.cta{display:inline-block;background:#d45b82;color:white;text-decoration:none;padding:14px 24px;border-radius:14px;font-weight:bold}
-section{padding:70px 20px}.container{max-width:1150px;margin:auto}
-.section-title{text-align:center;margin-bottom:38px}.section-title h2{font-size:38px;color:#b94f76}.section-title p{color:#8b6a78}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.product-card{background:white;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px #96466419;transition:.3s}
-.product-card:hover{transform:translateY(-7px)}
-.product-image{height:280px;overflow:hidden;background:#f8edf2}.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}.product-card:hover img{transform:scale(1.07)}
-.product-info{padding:20px}.product-info h3{font-size:21px;color:#633e4f;margin-bottom:6px}.price{font-size:18px;font-weight:bold;color:#d45b82;margin-bottom:15px}
-.order-btn,.send{border:0;background:#d45b82;color:white;padding:13px;border-radius:12px;font-weight:bold;cursor:pointer;width:100%;font-size:15px}
-.note{text-align:center;color:#8b6a78;font-size:14px;margin-top:28px}
-.contact{background:#fff0f5}.contact-box{max-width:850px;margin:auto;text-align:center;background:white;padding:35px;border-radius:25px}.contact-box h2{color:#b94f76}
-.contact-buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}.social-btn{display:inline-block;text-decoration:none;padding:12px 17px;border-radius:12px;font-weight:bold;background:#f7e2ea;color:#633e4f}.whatsapp{background:#d45b82;color:white}
-footer{background:#4f3340;color:white;text-align:center;padding:25px}
-.modal{display:none;position:fixed;inset:0;background:#371e2a99;z-index:100;padding:20px;overflow:auto}.modal-box{max-width:560px;margin:30px auto;background:white;border-radius:24px;padding:28px}
-.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-top h3{color:#b94f76}.close{border:0;background:#f7e2ea;width:38px;height:38px;border-radius:50%;font-size:22px}
-.form-group{margin-bottom:14px}.form-group label{display:block;font-weight:bold;margin-bottom:6px}.form-group input,.form-group textarea{width:100%;padding:12px;border:1px solid #e8cbd7;border-radius:11px;font:inherit}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.small{font-size:13px;color:#8b6a78;margin-top:8px}
-@media(max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){nav{gap:12px;font-size:14px}.logo{font-size:20px}.products{grid-template-columns:1fr}.product-image{height:300px}.form-row{grid-template-columns:1fr}}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#fff8fb;
+color:#4b3340;
+line-height:1.6;
+overflow-x:hidden;
+}
+
+/* =========================
+   ANIMASI GLOBAL
+========================= */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-9px);
+}
+}
+
+@keyframes pulse{
+0%,100%{
+box-shadow:0 0 0 0 #d45b8240;
+}
+50%{
+box-shadow:0 0 0 10px transparent;
+}
+}
+
+@keyframes shine{
+0%{
+left:-100%;
+}
+100%{
+left:150%;
+}
+}
+
+@keyframes modalIn{
+from{
+opacity:0;
+transform:scale(.92) translateY(20px);
+}
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+}
+
+@keyframes heartFloat{
+0%{
+transform:translateY(0) rotate(0);
+opacity:0;
+}
+20%{
+opacity:.8;
+}
+100%{
+transform:translateY(-120px) rotate(15deg);
+opacity:0;
+}
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:#fffffff2;
+box-shadow:0 2px 15px #d45b8220;
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+animation:fadeDown .7s ease;
+}
+
+.nav{
+max-width:1150px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:#d45b82;
+transition:.3s;
+}
+
+.logo:hover{
+transform:scale(1.05);
+}
+
+nav{
+display:flex;
+gap:22px;
+}
+
+nav a{
+text-decoration:none;
+color:#633e4f;
+font-weight:bold;
+position:relative;
+padding:5px 0;
+transition:.3s;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:50%;
+bottom:0;
+width:0;
+height:2px;
+background:#d45b82;
+transition:.3s;
+transform:translateX(-50%);
+}
+
+nav a:hover{
+color:#d45b82;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+min-height:560px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:60px 20px;
+background:linear-gradient(135deg,#fff1f6,#f9e6f0,#fff8fb);
+position:relative;
+overflow:hidden;
+}
+
+.hero::before,
+.hero::after{
+content:"";
+position:absolute;
+border-radius:50%;
+pointer-events:none;
+}
+
+.hero::before{
+width:260px;
+height:260px;
+background:#ffffff70;
+top:-100px;
+left:-80px;
+animation:float 5s ease-in-out infinite;
+}
+
+.hero::after{
+width:220px;
+height:220px;
+background:#f3c6d650;
+right:-80px;
+bottom:-80px;
+animation:float 6s ease-in-out infinite reverse;
+}
+
+.hero-content{
+max-width:800px;
+position:relative;
+z-index:2;
+animation:fadeUp .9s ease;
+}
+
+.badge{
+display:inline-block;
+background:#fff;
+border:1px solid #f3c6d6;
+color:#d45b82;
+padding:9px 16px;
+border-radius:999px;
+font-weight:bold;
+margin-bottom:18px;
+animation:float 3s ease-in-out infinite;
+}
+
+h1{
+font-size:clamp(46px,9vw,82px);
+color:#d45b82;
+line-height:1;
+margin-bottom:18px;
+text-shadow:0 5px 20px #d45b8220;
+}
+
+.hero p{
+font-size:19px;
+color:#765566;
+max-width:650px;
+margin:0 auto 28px;
+}
+
+.cta{
+display:inline-block;
+background:#d45b82;
+color:white;
+text-decoration:none;
+padding:14px 24px;
+border-radius:14px;
+font-weight:bold;
+position:relative;
+overflow:hidden;
+transition:.3s;
+box-shadow:0 8px 20px #d45b8230;
+}
+
+.cta::before,
+.order-btn::before,
+.send::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:50%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+#ffffff55,
+transparent
+);
+transform:skewX(-20deg);
+transition:.5s;
+}
+
+.cta:hover::before,
+.order-btn:hover::before,
+.send:hover::before{
+left:150%;
+}
+
+.cta:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 12px 25px #d45b8240;
+}
+
+.cta:active{
+transform:scale(.97);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+padding:70px 20px;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:38px;
+animation:fadeUp .8s ease;
+}
+
+.section-title h2{
+font-size:38px;
+color:#b94f76;
+}
+
+.section-title p{
+color:#8b6a78;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.product-card{
+background:white;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 10px 30px #96466419;
+transition:
+transform .35s ease,
+box-shadow .35s ease;
+position:relative;
+animation:fadeUp .7s ease both;
+}
+
+.product-card:nth-child(1){animation-delay:.05s}
+.product-card:nth-child(2){animation-delay:.1s}
+.product-card:nth-child(3){animation-delay:.15s}
+.product-card:nth-child(4){animation-delay:.2s}
+.product-card:nth-child(5){animation-delay:.25s}
+.product-card:nth-child(6){animation-delay:.3s}
+
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 18px 40px #96466430;
+}
+
+.product-image{
+height:280px;
+overflow:hidden;
+background:#f8edf2;
+position:relative;
+}
+
+.product-image::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+135deg,
+transparent 35%,
+#ffffff30 50%,
+transparent 65%
+);
+transform:translateX(-100%);
+transition:.7s;
+}
+
+.product-card:hover .product-image::after{
+transform:translateX(100%);
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:
+transform .6s cubic-bezier(.2,.8,.2,1),
+filter .4s;
+}
+
+.product-card:hover img{
+transform:scale(1.08);
+filter:saturate(1.08);
+}
+
+.product-info{
+padding:20px;
+}
+
+.product-info h3{
+font-size:21px;
+color:#633e4f;
+margin-bottom:6px;
+transition:.3s;
+}
+
+.product-card:hover .product-info h3{
+color:#d45b82;
+}
+
+.price{
+font-size:18px;
+font-weight:bold;
+color:#d45b82;
+margin-bottom:15px;
+}
+
+.order-btn,
+.send{
+border:0;
+background:#d45b82;
+color:white;
+padding:13px;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+width:100%;
+font-size:15px;
+position:relative;
+overflow:hidden;
+transition:.3s;
+box-shadow:0 5px 15px #d45b8220;
+}
+
+.order-btn:hover,
+.send:hover{
+transform:translateY(-3px);
+box-shadow:0 9px 20px #d45b8240;
+}
+
+.order-btn:active,
+.send:active{
+transform:scale(.97);
+}
+
+.note{
+text-align:center;
+color:#8b6a78;
+font-size:14px;
+margin-top:28px;
+animation:fadeUp 1s ease;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+background:#fff0f5;
+position:relative;
+overflow:hidden;
+}
+
+.contact::before{
+content:"💗";
+position:absolute;
+font-size:80px;
+left:8%;
+top:20%;
+opacity:.08;
+animation:float 4s ease-in-out infinite;
+}
+
+.contact::after{
+content:"✨";
+position:absolute;
+font-size:70px;
+right:8%;
+bottom:15%;
+opacity:.08;
+animation:float 5s ease-in-out infinite reverse;
+}
+
+.contact-box{
+max-width:850px;
+margin:auto;
+text-align:center;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 12px 35px #96466415;
+position:relative;
+z-index:2;
+animation:fadeUp .8s ease;
+transition:.3s;
+}
+
+.contact-box:hover{
+box-shadow:0 18px 45px #96466422;
+transform:translateY(-3px);
+}
+
+.contact-box h2{
+color:#b94f76;
+}
+
+.contact-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:center;
+margin-top:22px;
+}
+
+.social-btn{
+display:inline-block;
+text-decoration:none;
+padding:12px 17px;
+border-radius:12px;
+font-weight:bold;
+background:#f7e2ea;
+color:#633e4f;
+transition:.3s;
+}
+
+.social-btn:hover{
+transform:translateY(-4px);
+background:#efd0dc;
+box-shadow:0 7px 15px #96466418;
+}
+
+.whatsapp{
+background:#d45b82;
+color:white;
+animation:pulse 2.5s infinite;
+}
+
+.whatsapp:hover{
+background:#c84f76;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+background:#4f3340;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+footer p{
+animation:fadeUp .8s ease;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#371e2acc;
+z-index:100;
+padding:20px;
+overflow:auto;
+backdrop-filter:blur(5px);
+-webkit-backdrop-filter:blur(5px);
+}
+
+.modal-box{
+max-width:560px;
+margin:30px auto;
+background:white;
+border-radius:24px;
+padding:28px;
+animation:modalIn .35s ease;
+box-shadow:0 25px 60px #00000030;
+}
+
+.modal-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.modal-top h3{
+color:#b94f76;
+}
+
+.close{
+border:0;
+background:#f7e2ea;
+width:38px;
+height:38px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+transition:.3s;
+}
+
+.close:hover{
+background:#d45b82;
+color:white;
+transform:rotate(90deg);
+}
+
+.form-group{
+margin-bottom:14px;
+}
+
+.form-group label{
+display:block;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:12px;
+border:1px solid #e8cbd7;
+border-radius:11px;
+font:inherit;
+outline:none;
+transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+border-color:#d45b82;
+box-shadow:0 0 0 4px #d45b8215;
+transform:translateY(-1px);
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.small{
+font-size:13px;
+color:#8b6a78;
+margin-top:8px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+.products{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+nav{
+gap:12px;
+font-size:14px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.hero{
+min-height:520px;
+padding:50px 18px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.products{
+grid-template-columns:1fr;
+}
+
+.product-image{
+height:300px;
+}
+
+.form-row{
+grid-template-columns:1fr;
+}
+
+.contact-box{
+padding:28px 20px;
+}
+
+.contact-buttons{
+gap:9px;
+}
+
+.social-btn{
+padding:11px 14px;
+font-size:14px;
+}
+
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+transition-duration:.01ms!important;
+scroll-behavior:auto!important;
+}
+
+}
 </style>
 </head>
+
 <body>
-<header><div class="nav"><div class="logo">🧁 YANTI CAKE</div><nav><a href="#home">Home</a><a href="#produk">Produk</a><a href="#kontak">Kontak</a></nav></div></header>
 
-<section class="hero" id="home"><div class="hero-content">
-<div class="badge">✨ Freshly Made With Love</div>
-<h1>Yanti Cake</h1>
-<p>Kue cantik, fresh, dan dibuat dengan penuh cinta untuk ulang tahun, hadiah, acara spesial, atau sekadar bikin hari jadi lebih manis.</p>
-<a class="cta" href="#produk">Lihat Produk</a>
-</div></section>
+<header>
+<div class="nav">
+<div class="logo">🧁 YANTI CAKE</div>
 
-<section id="produk"><div class="container">
-<div class="section-title"><h2>🍰 Pilihan Kue</h2><p>Pilih kue favoritmu dan langsung pesan melalui WhatsApp.</p></div>
-<div class="products">
-
-<div class="product-card"><div class="product-image"><img src="chocolate-drip-cake.jpg" alt="Chocolate Drip Cake"></div><div class="product-info"><h3>Chocolate Drip Cake</h3><div class="price">Rp65.000</div><button class="order-btn" onclick="openOrder('Chocolate Drip Cake','Rp65.000')">Pesan Sekarang</button></div></div>
-
-<div class="product-card"><div class="product-image"><img src="pink-ribbon-cake.jpg" alt="Pink Ribbon Cake"></div><div class="product-info"><h3>Pink Ribbon Cake</h3><div class="price">Rp43.000</div><button class="order-btn" onclick="openOrder('Pink Ribbon Cake','Rp43.000')">Pesan Sekarang</button></div></div>
-
-<div class="product-card"><div class="product-image"><img src="pink-purple-bento-cake.jpg" alt="Pink Purple Bento Cake"></div><div class="product-info"><h3>Pink Purple Bento Cake</h3><div class="price">Rp40.000</div><button class="order-btn" onclick="openOrder('Pink Purple Bento Cake','Rp40.000')">Pesan Sekarang</button></div></div>
-
-<div class="product-card"><div class="product-image"><img src="white-cartoon-birthday-cake.jpg" alt="Cartoon Birthday Cake"></div><div class="product-info"><h3>Cartoon Birthday Cake</h3><div class="price">Rp35.000</div><button class="order-btn" onclick="openOrder('Cartoon Birthday Cake','Rp35.000')">Pesan Sekarang</button></div></div>
-
-<div class="product-card"><div class="product-image"><img src="pink-heart-cake.jpg" alt="Pink Heart Cake"></div><div class="product-info"><h3>Pink Heart Cake</h3><div class="price">Rp41.000</div><button class="order-btn" onclick="openOrder('Pink Heart Cake','Rp41.000')">Pesan Sekarang</button></div></div>
-
-<div class="product-card"><div class="product-image"><img src="custom-birthday-cake.jpg" alt="Custom Cake"></div><div class="product-info"><h3>Custom Cake</h3><div class="price">Mulai Rp35.000</div><button class="order-btn" onclick="openOrder('Custom Cake','Mulai Rp35.000')">Pesan Sekarang</button></div></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#produk">Produk</a>
+<a href="#kontak">Kontak</a>
+</nav>
 
 </div>
-<p class="note">* Harga dapat menyesuaikan ukuran, desain, tulisan, dan request khusus.</p>
-</div></section>
+</header>
 
-<section class="contact" id="kontak"><div class="container"><div class="contact-box">
-<h2>💗 Hubungi Yanti Cake</h2><p>Untuk pemesanan atau melihat katalog dan testimoni lainnya, silakan hubungi kami.</p>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">✨ Freshly Made With Love</div>
+
+<h1>Yanti Cake</h1>
+
+<p>
+Kue cantik, fresh, dan dibuat dengan penuh cinta untuk ulang tahun,
+hadiah, acara spesial, atau sekadar bikin hari jadi lebih manis.
+</p>
+
+<a class="cta" href="#produk">Lihat Produk</a>
+
+</div>
+
+</section>
+
+
+<section id="produk">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>🍰 Pilihan Kue</h2>
+
+<p>
+Pilih kue favoritmu dan langsung pesan melalui WhatsApp.
+</p>
+
+</div>
+
+
+<div class="products">
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="chocolate-drip-cake.jpg" alt="Chocolate Drip Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Chocolate Drip Cake</h3>
+
+<div class="price">Rp65.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Chocolate Drip Cake','Rp65.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="pink-ribbon-cake.jpg" alt="Pink Ribbon Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Pink Ribbon Cake</h3>
+
+<div class="price">Rp43.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Pink Ribbon Cake','Rp43.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="pink-purple-bento-cake.jpg" alt="Pink Purple Bento Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Pink Purple Bento Cake</h3>
+
+<div class="price">Rp40.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Pink Purple Bento Cake','Rp40.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="white-cartoon-birthday-cake.jpg" alt="Cartoon Birthday Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Cartoon Birthday Cake</h3>
+
+<div class="price">Rp35.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Cartoon Birthday Cake','Rp35.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="pink-heart-cake.jpg" alt="Pink Heart Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Pink Heart Cake</h3>
+
+<div class="price">Rp41.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Pink Heart Cake','Rp41.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="custom-birthday-cake.jpg" alt="Custom Cake">
+</div>
+
+<div class="product-info">
+
+<h3>Custom Cake</h3>
+
+<div class="price">Mulai Rp35.000</div>
+
+<button class="order-btn"
+onclick="openOrder('Custom Cake','Mulai Rp35.000')">
+Pesan Sekarang
+</button>
+
+</div>
+</div>
+
+
+</div>
+
+<p class="note">
+* Harga dapat menyesuaikan ukuran, desain, tulisan, dan request khusus.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="contact" id="kontak">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>💗 Hubungi Yanti Cake</h2>
+
+<p>
+Untuk pemesanan atau melihat katalog dan testimoni lainnya,
+silakan hubungi kami.
+</p>
+
+
 <div class="contact-buttons">
-<a class="social-btn whatsapp" href="https://wa.me/62895604755892" target="_blank">💬 WhatsApp</a>
-<a class="social-btn" href="https://www.instagram.com/yanti_purple_ungu/" target="_blank">📸 Instagram</a>
-<a class="social-btn" href="https://www.tiktok.com/@yanti_cake" target="_blank">🎵 TikTok</a>
-<a class="social-btn" href="https://maps.app.goo.gl/f1XSyJsq2CLD3c8cA" target="_blank">📍 Google Maps</a>
-<a class="social-btn" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTU1ODEwNDc3MTk2Mzcw?story_media_id=3948243132810731367_41553273965&stkn=NXNpNnAyaHZoZWxo" target="_blank">⭐ Testimoni</a>
-</div></div></div></section>
-<footer><p>© 2026 Yanti Cake — Dibuat dengan 💗</p></footer>
 
-<div class="modal" id="orderModal"><div class="modal-box">
-<div class="modal-top"><h3>🧁 Form Pemesanan</h3><button class="close" onclick="closeOrder()">×</button></div>
+<a class="social-btn whatsapp"
+href="https://wa.me/62895604755892"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a class="social-btn"
+href="https://www.instagram.com/yanti_purple_ungu/"
+target="_blank">
+📸 Instagram
+</a>
+
+<a class="social-btn"
+href="https://www.tiktok.com/@yanti_cake"
+target="_blank">
+🎵 TikTok
+</a>
+
+<a class="social-btn"
+href="https://maps.app.goo.gl/f1XSyJsq2CLD3c8cA"
+target="_blank">
+📍 Google Maps
+</a>
+
+<a class="social-btn"
+href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTU1ODEwNDc3MTk2Mzcw?story_media_id=3948243132810731367_41553273965&stkn=NXNpNnAyaHZoZWxo"
+target="_blank">
+⭐ Testimoni
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Yanti Cake — Dibuat dengan 💗</p>
+
+</footer>
+
+
+<div class="modal" id="orderModal">
+
+<div class="modal-box">
+
+<div class="modal-top">
+
+<h3>🧁 Form Pemesanan</h3>
+
+<button class="close" onclick="closeOrder()">×</button>
+
+</div>
+
+
 <form onsubmit="sendOrder(event)">
-<div class="form-group"><label>Produk</label><input id="product" readonly></div>
-<div class="form-group"><label>Harga</label><input id="price" readonly></div>
-<div class="form-group"><label>Nama</label><input id="name" required placeholder="Nama kamu"></div>
-<div class="form-group"><label>Nomor WhatsApp kamu</label><input id="customerWa" required type="tel" placeholder="08xxxxxxxxxx"></div>
-<div class="form-row"><div class="form-group"><label>Tanggal</label><input id="date" required type="date"></div><div class="form-group"><label>Jam</label><input id="time" required type="time"></div></div>
-<div class="form-group"><label>Jumlah</label><input id="qty" required type="number" min="1" value="1"></div>
-<div class="form-group"><label>Alamat / Lokasi Pengambilan</label><textarea id="address" required rows="3"></textarea></div>
-<div class="form-group"><label>Catatan / Request</label><textarea id="note" rows="3"></textarea></div>
-<button class="send" type="submit">💬 Kirim Pesanan ke WhatsApp</button><div class="small">Pesanan akan dibuka di WhatsApp Yanti Cake.</div>
-</form></div></div>
+
+
+<div class="form-group">
+
+<label>Produk</label>
+
+<input id="product" readonly>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Harga</label>
+
+<input id="price" readonly>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Nama</label>
+
+<input id="name"
+required
+placeholder="Nama kamu">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Nomor WhatsApp kamu</label>
+
+<input id="customerWa"
+required
+type="tel"
+placeholder="08xxxxxxxxxx">
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Tanggal</label>
+
+<input id="date"
+required
+type="date">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Jam</label>
+
+<input id="time"
+required
+type="time">
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Jumlah</label>
+
+<input id="qty"
+required
+type="number"
+min="1"
+value="1">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Alamat / Lokasi Pengambilan</label>
+
+<textarea id="address"
+required
+rows="3"></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Catatan / Request</label>
+
+<textarea id="note"
+rows="3"></textarea>
+
+</div>
+
+
+<button class="send" type="submit">
+💬 Kirim Pesanan ke WhatsApp
+</button>
+
+<div class="small">
+Pesanan akan dibuka di WhatsApp Yanti Cake.
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
 
 <script>
+
 const WHATSAPP_NUMBER="62895604755892";
+
 const modal=document.getElementById("orderModal");
-const now=new Date(), yyyy=now.getFullYear(), mm=String(now.getMonth()+1).padStart(2,"0"), dd=String(now.getDate()).padStart(2,"0");
-document.getElementById("date").min=`${yyyy}-${mm}-${dd}`;
-function openOrder(product,price){document.getElementById("product").value=product;document.getElementById("price").value=price;modal.style.display="block";document.body.style.overflow="hidden"}
-function closeOrder(){modal.style.display="none";document.body.style.overflow=""}
-modal.addEventListener("click",e=>{if(e.target===modal)closeOrder()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeOrder()});
-function sendOrder(e){
-e.preventDefault();
-const fields=["product","price","name","customerWa","date","time","qty","address","note"].map(id=>document.getElementById(id).value||"-");
-const msg=`Halo Yanti Cake, saya mau pesan:%0A%0AProduk: ${encodeURIComponent(fields[0])}%0AHarga: ${encodeURIComponent(fields[1])}%0AJumlah: ${encodeURIComponent(fields[6])}%0ANama: ${encodeURIComponent(fields[2])}%0AWhatsApp: ${encodeURIComponent(fields[3])}%0ATanggal: ${encodeURIComponent(fields[4])}%0AJam: ${encodeURIComponent(fields[5])}%0AAlamat/Lokasi: ${encodeURIComponent(fields[7])}%0ACatatan: ${encodeURIComponent(fields[8])}`;
-window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank"); closeOrder();
+
+const now=new Date(),
+yyyy=now.getFullYear(),
+mm=String(now.getMonth()+1).padStart(2,"0"),
+dd=String(now.getDate()).padStart(2,"0");
+
+document.getElementById("date").min=
+`${yyyy}-${mm}-${dd}`;
+
+
+function openOrder(product,price){
+
+document.getElementById("product").value=product;
+
+document.getElementById("price").value=price;
+
+modal.style.display="block";
+
+document.body.style.overflow="hidden";
+
 }
+
+
+function closeOrder(){
+
+modal.style.display="none";
+
+document.body.style.overflow="";
+
+}
+
+
+modal.addEventListener("click",e=>{
+
+if(e.target===modal)closeOrder();
+
+});
+
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape")closeOrder();
+
+});
+
+
+function sendOrder(e){
+
+e.preventDefault();
+
+const fields=[
+"product",
+"price",
+"name",
+"customerWa",
+"date",
+"time",
+"qty",
+"address",
+"note"
+].map(id=>
+document.getElementById(id).value||"-"
+);
+
+const msg=
+`Halo Yanti Cake, saya mau pesan:%0A%0A`+
+`Produk: ${encodeURIComponent(fields[0])}%0A`+
+`Harga: ${encodeURIComponent(fields[1])}%0A`+
+`Jumlah: ${encodeURIComponent(fields[6])}%0A`+
+`Nama: ${encodeURIComponent(fields[2])}%0A`+
+`WhatsApp: ${encodeURIComponent(fields[3])}%0A`+
+`Tanggal: ${encodeURIComponent(fields[4])}%0A`+
+`Jam: ${encodeURIComponent(fields[5])}%0A`+
+`Alamat/Lokasi: ${encodeURIComponent(fields[7])}%0A`+
+`Catatan: ${encodeURIComponent(fields[8])}`;
+
+window.open(
+`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,
+"_blank"
+);
+
+closeOrder();
+
+}
+
 </script>
+
 </body>
-</html>
+  </html>
